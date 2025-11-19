@@ -4,8 +4,11 @@
  * @packageDocumentation
  */
 
+// Main exports
+export { WebVisor } from './webvisor.js';
+
+// Core types
 export type {
-  // Core types
   ExecutionMode,
   VirtualizableAPI,
   WebVisorConfig,
@@ -22,8 +25,8 @@ export type {
   PerformanceMetrics,
 } from './core/types.js';
 
+// Trap layer types
 export type {
-  // Trap layer types
   TrapLayer,
   DOMTrapHandler,
   NetworkTrapHandler,
@@ -37,8 +40,8 @@ export type {
   TrapEvent,
 } from './core/trap-layer/types.js';
 
+// Virtual platform types and implementations
 export type {
-  // Virtual platform types
   VirtualPlatform,
   VirtualPlatformState,
   VirtualDOM,
@@ -61,8 +64,12 @@ export type {
   RNGState,
 } from './core/virtual-platform/types.js';
 
+export { createVirtualClock } from './core/virtual-platform/virtual-clock.js';
+export { createVirtualRNG, PRNGAlgorithm } from './core/virtual-platform/virtual-rng.js';
+export { createVirtualDOM } from './core/virtual-platform/virtual-dom.js';
+
+// Runtime types
 export type {
-  // Runtime types
   ExecutionRuntime,
   RuntimeState,
   EventScheduler,
@@ -78,8 +85,8 @@ export type {
   BreakpointCondition,
 } from './core/runtime/types.js';
 
+// State management types and implementations
 export type {
-  // State management types
   StateManager,
   StateSnapshot,
   SnapshotMetadata,
@@ -91,47 +98,58 @@ export type {
   SnapshotCriteria,
 } from './core/state/types.js';
 
-/**
- * Main WebVisor class (to be implemented)
- */
-export class WebVisor {
-  constructor(config: WebVisorConfig) {
-    throw new Error('WebVisor is not yet implemented');
-  }
+export { createStateManager } from './core/state/state-manager.js';
 
-  async load(code: GuestCode): Promise<void> {
-    throw new Error('Not implemented');
-  }
+// Instrumentation
+export {
+  Logger,
+  LogLevel,
+  type LoggerConfig,
+  type LogEntry,
+  type LogContext,
+  createLogger,
+  getLogger,
+} from './utils/instrumentation/logger.js';
 
-  async run(): Promise<void> {
-    throw new Error('Not implemented');
-  }
+export {
+  Tracer,
+  ActiveSpan,
+  type Span,
+  type SpanContext,
+  SpanStatus,
+  getTracer,
+  setTracer,
+  trace,
+} from './utils/instrumentation/tracer.js';
 
-  pause(): void {
-    throw new Error('Not implemented');
-  }
+export {
+  MetricsRegistry,
+  Counter,
+  Gauge,
+  Histogram,
+  Timer,
+  MetricType,
+  getMetrics,
+  setMetrics,
+} from './utils/instrumentation/metrics.js';
 
-  resume(): void {
-    throw new Error('Not implemented');
-  }
+// Tools
+export { Inspector, createInspector } from './tools/inspector.js';
+export { Profiler, createProfiler } from './tools/profiler.js';
 
-  snapshot(): StateSnapshot {
-    throw new Error('Not implemented');
-  }
+export type {
+  InspectorState,
+  DOMInspection,
+  NetworkInspection,
+  StorageInspection,
+  TimingInspection,
+} from './tools/inspector.js';
 
-  async restore(snapshot: StateSnapshot): Promise<void> {
-    throw new Error('Not implemented');
-  }
-
-  use(plugin: WebVisorPlugin): void {
-    throw new Error('Not implemented');
-  }
-}
-
-// Re-export types for convenience
-import type {
-  WebVisorConfig,
-  GuestCode,
-  WebVisorPlugin,
-} from './core/types.js';
-import type { StateSnapshot } from './core/state/types.js';
+export type {
+  APIUsageAnalysis,
+  Hotspot,
+  DOMAnalysis,
+  NetworkAnalysis,
+  OptimizationSuggestion,
+  ProfilerStats,
+} from './tools/profiler.js';
