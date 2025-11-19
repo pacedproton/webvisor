@@ -67,6 +67,8 @@ export type {
 export { createVirtualClock } from './core/virtual-platform/virtual-clock.js';
 export { createVirtualRNG, PRNGAlgorithm } from './core/virtual-platform/virtual-rng.js';
 export { createVirtualDOM } from './core/virtual-platform/virtual-dom.js';
+export { createVirtualNetwork } from './core/virtual-platform/virtual-network.js';
+export { createVirtualStorage } from './core/virtual-platform/virtual-storage.js';
 
 // Runtime types
 export type {
@@ -99,6 +101,16 @@ export type {
 } from './core/state/types.js';
 
 export { createStateManager } from './core/state/state-manager.js';
+
+// Trap layer implementations
+export { createTrapLayer } from './core/trap-layer/trap-layer.js';
+
+// Runtime implementations
+export {
+  createEventScheduler,
+  createDeterministicQueue,
+  createMicrotaskQueue,
+} from './core/runtime/scheduler.js';
 
 // Instrumentation
 export {
