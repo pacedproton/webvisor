@@ -1,0 +1,43 @@
+{
+  "timestamp": 1763538223140,
+  "uptime": 1006,
+  "clock": {
+    "currentTime": 1763538224646,
+    "frozen": false,
+    "scheduledCount": 1
+  },
+  "rng": {
+    "seed": 1763538222131
+  },
+  "dom": {
+    "elementCount": 0,
+    "eventListenerCount": 0,
+    "depth": 0
+  },
+  "network": {
+    "requestCount": 0,
+    "mockCount": 2,
+    "pendingRequests": 0,
+    "cacheSize": 0
+  },
+  "storage": {},
+  "graphics": {
+    "canvasCount": 0,
+    "totalDrawCalls": 0,
+    "totalCommands": 0
+  },
+  "runtime": {
+    "eventCount": 0,
+    "queuedEvents": 0,
+    "executedEvents": 0
+  },
+  "stateManager": {
+    "snapshotCount": 0,
+    "currentIndex": 0
+  },
+  "metrics": {
+    "counters": {},
+    "gauges": {}
+  },
+  "logs": []
+}

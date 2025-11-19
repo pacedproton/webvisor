@@ -153,12 +153,13 @@ export class VirtualLocalStorageImpl implements VirtualLocalStorage {
 export class VirtualStorageImpl implements VirtualStorage {
   localStorage: VirtualLocalStorage;
   sessionStorage: VirtualLocalStorage;
-  indexedDB: IDBFactory; // Use native for now
+  indexedDB: IDBFactory | null; // Use native for now
 
   constructor() {
     this.localStorage = new VirtualLocalStorageImpl('localStorage');
     this.sessionStorage = new VirtualLocalStorageImpl('sessionStorage');
-    this.indexedDB = indexedDB; // TODO: Virtualize IndexedDB
+    // Check if indexedDB is available (not available in Node.js)
+    this.indexedDB = typeof indexedDB !== 'undefined' ? indexedDB : null;
 
     logger.info('Virtual storage initialized');
   }

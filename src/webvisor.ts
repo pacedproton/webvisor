@@ -14,6 +14,8 @@ import type { VirtualPlatformState } from './core/virtual-platform/types.js';
 import { createVirtualClock } from './core/virtual-platform/virtual-clock.js';
 import { createVirtualRNG, PRNGAlgorithm } from './core/virtual-platform/virtual-rng.js';
 import { createVirtualDOM } from './core/virtual-platform/virtual-dom.js';
+import { createVirtualNetwork } from './core/virtual-platform/virtual-network.js';
+import { createVirtualStorage } from './core/virtual-platform/virtual-storage.js';
 import { createStateManager } from './core/state/state-manager.js';
 import { createInspector } from './tools/inspector.js';
 import { createProfiler } from './tools/profiler.js';
@@ -34,6 +36,8 @@ export class WebVisor {
   private vClock = createVirtualClock();
   private vRNG = createVirtualRNG(Date.now(), PRNGAlgorithm.XORSHIFT128);
   private vDOM = createVirtualDOM();
+  private vNetwork = createVirtualNetwork();
+  private vStorage = createVirtualStorage();
 
   // Core systems
   private stateManager = createStateManager({ maxSnapshots: 1000 });
@@ -78,6 +82,29 @@ export class WebVisor {
 
     // Record initialization metric
     getMetrics().counter('webvisor.initialized').inc();
+  }
+
+  /**
+   * Public readonly access to virtual platform components
+   */
+  get clock() {
+    return this.vClock;
+  }
+
+  get rng() {
+    return this.vRNG;
+  }
+
+  get dom() {
+    return this.vDOM;
+  }
+
+  get network() {
+    return this.vNetwork;
+  }
+
+  get storage() {
+    return this.vStorage;
   }
 
   /**

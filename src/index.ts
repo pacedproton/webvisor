@@ -175,6 +175,7 @@ export {
 // Tools
 export { Inspector, createInspector } from './tools/inspector.js';
 export { Profiler, createProfiler } from './tools/profiler.js';
+export { WebMonitor, createWebMonitor } from './tools/web-monitor.js';
 
 export type {
   InspectorState,
@@ -192,3 +193,10 @@ export type {
   OptimizationSuggestion,
   ProfilerStats,
 } from './tools/profiler.js';
+
+export type {
+  WebMonitorConfig,
+  MonitorSnapshot,
+  LogEntry,
+  ControlCommand,
+} from './tools/web-monitor.js';
