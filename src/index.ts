@@ -112,6 +112,16 @@ export {
   createMicrotaskQueue,
 } from './core/runtime/scheduler.js';
 
+// Isolation and security
+export {
+  createIsolationManager,
+  IsolationLevel,
+  type IsolationConfig,
+  type SecurityViolation,
+  type IsolationValidation,
+  type AccessAttempt,
+} from './core/isolation/isolation-manager.js';
+
 // Instrumentation
 export {
   Logger,
