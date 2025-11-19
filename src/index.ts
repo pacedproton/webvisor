@@ -64,11 +64,27 @@ export type {
   RNGState,
 } from './core/virtual-platform/types.js';
 
+export type {
+  VirtualCanvas2DContext,
+  VirtualWebGLContext,
+  VirtualCanvasElement,
+  CanvasCommand,
+  ShaderInfo,
+  ProgramInfo,
+  BufferInfo,
+  TextureInfo,
+  GraphicsState,
+  CanvasState,
+  GraphicsRecording,
+} from './core/virtual-platform/virtual-graphics.types.js';
+
 export { createVirtualClock } from './core/virtual-platform/virtual-clock.js';
 export { createVirtualRNG, PRNGAlgorithm } from './core/virtual-platform/virtual-rng.js';
 export { createVirtualDOM } from './core/virtual-platform/virtual-dom.js';
 export { createVirtualNetwork } from './core/virtual-platform/virtual-network.js';
 export { createVirtualStorage } from './core/virtual-platform/virtual-storage.js';
+export { createVirtualCanvas2D } from './core/virtual-platform/virtual-canvas-2d.js';
+export { createVirtualWebGL } from './core/virtual-platform/virtual-webgl.js';
 
 // Runtime types
 export type {
@@ -104,6 +120,7 @@ export { createStateManager } from './core/state/state-manager.js';
 
 // Trap layer implementations
 export { createTrapLayer } from './core/trap-layer/trap-layer.js';
+export { createGraphicsTrapHandler, type GraphicsTrapConfig } from './core/trap-layer/graphics-trap.js';
 
 // Runtime implementations
 export {
